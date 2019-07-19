@@ -3,7 +3,7 @@
 
 void test_stringifying(void)
 {
-    json_t *root = json_pack("{}");
+    json_t *root = json_object();
 
     int result;
 
@@ -22,6 +22,7 @@ void test_stringifying(void)
     }
 
     char *text = json_dumps(root, 0);
+    json_decref(root);
 
     printf("%s\n", text);
     free(text);
